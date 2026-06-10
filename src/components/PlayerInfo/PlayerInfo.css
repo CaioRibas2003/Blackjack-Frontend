@@ -1,0 +1,10 @@
+.playerInfo {
+  width: 150px;
+  height: 150px;
+  background-color: #2b2b2b;
+  color: #c9a227;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  border: solid 2px #c9a227;
+}

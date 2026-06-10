@@ -1,0 +1,15 @@
+.blackjack {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #08140d;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.casinoTable {
+  width: 80%;
+  height: 80vh;
+  border-radius: 1000px;
+  background-color: #10261a;
+}
