@@ -1,73 +1,112 @@
-# React + TypeScript + Vite
+# Blackjack Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Frontend de um jogo de Blackjack desenvolvido com **React**, **TypeScript** e **Vite**.
+A aplicação consome uma API backend em Spring Boot responsável pelas regras do jogo, criação do jogador, apostas e fluxo da partida.
 
-Currently, two official plugins are available:
+## Tecnologias utilizadas
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+* React
+* TypeScript
+* Vite
+* Axios
+* React Router DOM
+* CSS Modules/arquivos CSS por componente
 
-## React Compiler
+## Funcionalidades
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+* Tela inicial para criação do jogador
+* Validação de nome e saldo inicial
+* Integração com API para criação do jogador
+* Navegação entre tela inicial e mesa de jogo
+* Sistema de apostas com fichas
+* Validação para impedir aposta maior que o saldo disponível
+* Renderização dinâmica das cartas do jogador e dealer
+* Carta oculta do dealer
+* Botões de ação: Hit, Stand, Dealer Next, Deal e Clear
+* Atualização de pontuação em tempo real
+* Atualização do saldo do jogador após cada rodada
+* Card de resultado final com opção de jogar novamente
 
-## Expanding the ESLint configuration
+## Estrutura principal
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```txt
+src/
+├── components/
+│   ├── Buttons/
+│   ├── Card/
+│   ├── Chip/
+│   ├── PlayerInfo/
+│   └── ScoreDisplay/
+│
+├── pages/
+│   ├── home/
+│   └── blackjack/
+│
+├── services/
+│   ├── api.ts
+│   ├── playerService.ts
+│   └── blackjackService.ts
+│
+├── types/
+│   ├── Player.ts
+│   ├── Card.ts
+│   ├── Game.ts
+│   └── Button.ts
+│
+├── App.tsx
+└── main.tsx
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Como rodar o projeto
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### 1. Instalar dependências
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
 ```
+
+### 2. Configurar a URL da API
+
+No arquivo:
+
+```txt
+src/services/api.ts
+```
+
+confirme se a URL está apontando para o backend:
+
+```ts
+import axios from "axios";
+
+export const api = axios.create({
+  baseURL: "http://localhost:8080",
+});
+```
+
+### 3. Rodar o frontend
+
+```bash
+npm run dev
+```
+
+A aplicação será iniciada normalmente em:
+
+```txt
+http://localhost:5173
+```
+
+## Fluxo do jogo
+
+1. O usuário informa nome e saldo inicial.
+2. O frontend envia os dados para o backend criar o jogador.
+3. O usuário é redirecionado para a mesa de Blackjack.
+4. O usuário monta a aposta clicando nas fichas.
+5. Ao clicar em Deal, a rodada é iniciada.
+6. O jogador pode escolher Hit ou Stand.
+7. Após Stand, o botão Dealer Next permite acompanhar cada ação do dealer.
+8. Ao final da rodada, o resultado é exibido e o saldo é atualizado.
+9. O jogador pode iniciar uma nova rodada.
+
+## Observações
+
+Este projeto foi desenvolvido como prática de integração entre frontend e backend, utilizando React com TypeScript no frontend e Spring Boot no backend.
