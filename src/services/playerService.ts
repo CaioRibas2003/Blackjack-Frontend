@@ -1,6 +1,6 @@
 import { api } from "./api";
-import type { CreatePlayerRequest } from "../types/createPlayerRequest";
-import type { Player } from "../types/player";
+import type { CreatePlayerRequest } from "../types/CreatePlayerRequest";
+import type { Player } from "../types/Player";
 
 export async function createPlayer(
   request: CreatePlayerRequest,

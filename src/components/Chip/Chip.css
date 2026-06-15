@@ -1,0 +1,50 @@
+.chip {
+  width: 70px;
+  height: 70px;
+
+  border-radius: 50%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 18px;
+  font-weight: bold;
+
+  color: white;
+
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+
+  border: 4px dashed white;
+
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
+
+  user-select: none;
+}
+
+.chip:hover {
+  transform: translateY(-4px) scale(1.05);
+}
+
+.chip:active {
+  transform: scale(0.95);
+}
+
+.chip-10 {
+  background-color: #d4af37;
+  color: white;
+}
+
+.chip-25 {
+  background-color: #2e7d32;
+}
+
+.chip-50 {
+  background-color: #1565c0;
+}
+
+.chip-100 {
+  background-color: #c62828;
+}

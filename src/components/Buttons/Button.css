@@ -1,0 +1,69 @@
+.GameButton {
+  min-width: 120px;
+  padding: 12px 24px;
+
+  border: none;
+  border-radius: 14px;
+
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+}
+
+.GameButton:hover {
+  transform: translateY(-2px);
+}
+
+.GameButton:active {
+  transform: translateY(0);
+}
+
+.GameButton:disabled {
+  background-color: #777 !important;
+  color: #ddd;
+  cursor: not-allowed;
+}
+
+.GameButton.hit {
+  background-color: #00bcd4;
+}
+
+.GameButton.hit:hover {
+  background-color: #00acc1;
+}
+
+.GameButton.stand {
+  background-color: #1976d2;
+}
+
+.GameButton.stand:hover {
+  background-color: #1565c0;
+}
+
+.GameButton.clear {
+  background-color: #f44336;
+}
+
+.GameButton.clear:hover {
+  background-color: #d32f2f;
+}
+
+.GameButton.deal {
+  background-color: #4caf50;
+}
+
+.GameButton.deal:hover {
+  background-color: #388e3c;
+}
+
+.GameButton.dealer {
+  background-color: #f57c00;
+}
+
+.GameButton.dealer:hover {
+  background-color: #ef6c00;
+}

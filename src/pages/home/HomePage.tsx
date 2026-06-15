@@ -45,7 +45,7 @@ function HomePage() {
     <div className="home">
       <h1>Blackjack</h1>
 
-      <div className="card">
+      <div className="login">
         <div className="field">
           <label>Nome: </label>
           <input
