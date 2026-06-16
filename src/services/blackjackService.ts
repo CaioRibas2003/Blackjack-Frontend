@@ -29,7 +29,7 @@ export async function stand(
 }
 
 export async function dealerNext(
-  request: ActionRequest,
+  request: PlayerActionRequest,
 ): Promise<GameResponse> {
   const response = await api.post<GameResponse>(
     "/blackjack/dealer/next",
